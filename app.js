@@ -2,6 +2,7 @@
 const express = require('express')
 const app = express();
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 require('dotenv').config()
 
@@ -41,6 +42,7 @@ app.use(fileUpload({
     tempFileDir : './tmp/'
 }));
 
+app.use(cors())
 app.use('/user',userRoute)
 app.use('/video',videoRoute)
 app.use('/comments',commentRoute)
